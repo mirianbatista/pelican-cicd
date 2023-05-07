@@ -39,6 +39,8 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: |
-        ghp-import -n -p -f output
+        ghp-import -n -f output
+        git push -f https://${{ secrets.GH_PAGES_TOKEN }}@github.com/${{ github.repository }} gh-pages:gh-pages
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
+
