@@ -34,5 +34,5 @@ jobs:
       run: |
         ghp-import -n -p -f output
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
