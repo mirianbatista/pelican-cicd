@@ -40,7 +40,7 @@ jobs:
     - name: Deploy to GitHub Pages
       run: |
         ghp-import -n -f output
-        git remote set-url --push origin "https://${{ secrets.GH_PAGES_TOKEN }}@github.com/${{ github.repository }}"
+        git remote set-url --push origin "https://${{ secrets.gh_pages_deploy }}@github.com/${{ github.repository }}"
         git push -f origin gh-pages
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
