@@ -30,9 +30,15 @@ jobs:
       run: |
         pelican content -o output -s pelicanconf.py
 
+    - name: Configure Git for GitHub Pages deployment
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions Bot"
+        git remote rm origin
+        git remote add origin https://${{ secrets.GH_PAGES_TOKEN }}@github.com/${{ github.repository }}.git
+
     - name: Deploy to GitHub Pages
       run: |
         ghp-import -n -p -f output
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
