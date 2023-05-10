@@ -22,10 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pelican markdown ghp-import
 
-    - name: List directory contents
-      run: |
-        ls -la
-
     - name: Build Pelican site
       run: |
         pelican content -o output -s pelicanconf.py
